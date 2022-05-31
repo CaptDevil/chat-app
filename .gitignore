@@ -1,0 +1,4 @@
+client/node_modules
+node_modules
+Adam-chatbot/__pycache__
+Adam-chatbot/.ipynb_checkpoints

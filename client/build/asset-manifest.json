@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/static/js/main.4247163b.js",
+    "static/media/liquid-cheese.svg": "/static/media/liquid-cheese.23b016becec6c1207ef3e5962e6dc05d.svg",
+    "index.html": "/index.html",
+    "main.4247163b.js.map": "/static/js/main.4247163b.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.4247163b.js"
+  ]
+}
