@@ -80,6 +80,21 @@ function ChatRoom(props) {
     React.useEffect(() => {
         props.socket.on('receive_message', (data) => {
             setChats((chats) => [...chats, data])
+            if(Notification.permission === 'granted'){
+                const notify = new Notification(data.author === '' ? '' : `From ${data.author}`, {
+                    body: data.body
+                })
+                console.log(notify)
+            }
+            else
+                Notification.requestPermission().then(permission => {
+                    if(permission === 'granted'){
+                        const notify = new Notification(`From ${data.author}`, {
+                            body: data.body
+                        })
+                        console.log(notify)
+                    }
+                })
         })
         props.socket.on('user_left', (data) => {
             setChats((chats) => [...chats, data])
