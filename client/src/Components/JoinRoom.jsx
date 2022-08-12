@@ -5,6 +5,12 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Alert from '@mui/material/Alert';
+import { Howl } from 'howler';
+import Wow from '../wow.mp3';
+
+const sounds = {
+    wow: new Howl({ src: Wow }),
+}
 
 const style = {
     position: 'absolute',
@@ -57,6 +63,7 @@ function JoinRoom(props) {
                             props.getDetails(room,username)
                             props.socket.emit('join_room', {room,username})
                             setJoinButton(false)
+                            sounds.wow.play()
                         }
                         else
                             setShowAlert(true)
