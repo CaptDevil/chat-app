@@ -9,6 +9,14 @@ import Alert from '@mui/material/Alert';
 import Popover from '@mui/material/Popover';
 import Container from '@mui/material/Container';
 import ChatBackground from '../liquid-cheese.svg';
+import { Howl } from 'howler';
+import Wow from '../wow.mp3';
+import Chime from '../chime.mp3';
+
+const sounds = {
+    wow: new Howl({ src: Wow }),
+    chime: new Howl({ src: Chime }),
+}
 
 let room = '', username= '';
 
@@ -80,16 +88,17 @@ function ChatRoom(props) {
     React.useEffect(() => {
         props.socket.on('receive_message', (data) => {
             setChats((chats) => [...chats, data])
-            if(Notification.permission === 'granted'){
-                const notify = new Notification(data.author === '' ? '' : `From ${data.author}`, {
+            sounds.chime.play()
+            if(Notification.permission === 'granted' && data.author === ''){
+                const notify = new Notification('', {
                     body: data.body
                 })
                 console.log(notify)
             }
             else
                 Notification.requestPermission().then(permission => {
-                    if(permission === 'granted'){
-                        const notify = new Notification(`From ${data.author}`, {
+                    if(permission === 'granted' && data.author === ''){
+                        const notify = new Notification('', {
                             body: data.body
                         })
                         console.log(notify)
