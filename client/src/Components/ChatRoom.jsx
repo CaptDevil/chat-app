@@ -10,11 +10,9 @@ import Popover from '@mui/material/Popover';
 import Container from '@mui/material/Container';
 import ChatBackground from '../liquid-cheese.svg';
 import { Howl } from 'howler';
-import Wow from '../wow.mp3';
-import Chime from '../chime.mp3';
+import Chime from '../audio-files/chime.mp3';
 
 const sounds = {
-    wow: new Howl({ src: Wow }),
     chime: new Howl({ src: Chime }),
 }
 

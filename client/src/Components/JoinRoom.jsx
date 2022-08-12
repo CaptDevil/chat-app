@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Alert from '@mui/material/Alert';
 import { Howl } from 'howler';
-import Wow from '../wow.mp3';
+import Wow from '../audio-files/wow.mp3';
 
 const sounds = {
     wow: new Howl({ src: Wow }),
