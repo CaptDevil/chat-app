@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
     });
     console.log(`User '${username}' left room: ${room}`);
   });
-});
+}); //this is soemthing
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('./client/build'));
